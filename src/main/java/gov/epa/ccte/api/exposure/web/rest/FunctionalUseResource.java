@@ -19,8 +19,8 @@ import java.util.List;
 /**
  * REST controller for getting the {@link gov.epa.ccte.api.exposure.domain.FunctionalUse}s.
  */
-@Tag(name = "Chemical Details Resource",
-        description = "API endpoints for collecting data for given chemical(s).")
+@Tag(name = "Functional Use Resource",
+        description = "API endpoints for functional use in exposure data.")
 @SecurityRequirement(name = "api_key")
 @Slf4j
 @RestController
