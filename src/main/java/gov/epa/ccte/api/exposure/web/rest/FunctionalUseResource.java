@@ -1,9 +1,11 @@
 package gov.epa.ccte.api.exposure.web.rest;
 
 import gov.epa.ccte.api.exposure.domain.FunctionalUseCategory;
+import gov.epa.ccte.api.exposure.projection.QsurDataAll;
 import gov.epa.ccte.api.exposure.projection.FunctionalUseAll;
 import gov.epa.ccte.api.exposure.repository.FunctionalUseCategoryRepository;
 import gov.epa.ccte.api.exposure.repository.FunctionalUseRepository;
+import gov.epa.ccte.api.exposure.repository.QsurDataRepository;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -28,10 +30,12 @@ public class FunctionalUseResource {
 
         private final FunctionalUseRepository repository;
         private final FunctionalUseCategoryRepository categoryRepository;
+        private final QsurDataRepository qsurDataRepository;
 
-    public FunctionalUseResource(FunctionalUseRepository repository, FunctionalUseCategoryRepository categoryRepository) {
+    public FunctionalUseResource(FunctionalUseRepository repository, FunctionalUseCategoryRepository categoryRepository, QsurDataRepository qsurDataRepository) {
         this.repository = repository;
         this.categoryRepository = categoryRepository;
+        this.qsurDataRepository = qsurDataRepository;
     }
 
     @RequestMapping(value = "exposure/functional-use/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -47,6 +51,15 @@ public class FunctionalUseResource {
     List<FunctionalUseCategory> getFunctionalUseCategory(){
         log.debug("all functional use category");
         List<FunctionalUseCategory> data = categoryRepository.findAll();
+        return data;
+    }
+
+    @RequestMapping(value = "exposure/functional-use/probability/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    List<QsurDataAll> getFunctionalUseProbabilityByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid")String dtxsid) {
+        log.debug("all functional use probability for dtxsid = {}", dtxsid);
+
+        List<QsurDataAll> data = qsurDataRepository.findByDtxsidOrderByHarmonizedFunctionalUseAsc(dtxsid, QsurDataAll.class);
+
         return data;
     }
 }
