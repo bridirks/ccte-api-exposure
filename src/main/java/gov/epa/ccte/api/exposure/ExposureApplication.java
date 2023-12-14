@@ -2,6 +2,7 @@ package gov.epa.ccte.api.exposure;
 
 import gov.epa.ccte.api.exposure.config.ApplicationProperties;
 import gov.epa.ccte.api.exposure.config.Constants;
+import gov.epa.ccte.api.exposure.config.DefaultProfileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.boot.SpringApplication;
@@ -10,7 +11,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
@@ -55,6 +56,7 @@ public class ExposureApplication {
 		log.info("*** Application is started. ***");
 
 		SpringApplication app = new SpringApplication(ExposureApplication.class);
+		DefaultProfileUtil.addDefaultProfile(app); // dev profile is default
 		ConfigurableApplicationContext ctx = app.run(args);
 		Environment env = ctx.getEnvironment();
 
