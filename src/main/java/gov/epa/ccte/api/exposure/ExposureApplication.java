@@ -11,6 +11,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
+
 import jakarta.annotation.PostConstruct;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -56,6 +57,7 @@ public class ExposureApplication {
 		log.info("*** Application is started. ***");
 
 		SpringApplication app = new SpringApplication(ExposureApplication.class);
+
 		DefaultProfileUtil.addDefaultProfile(app); // dev profile is default
 		ConfigurableApplicationContext ctx = app.run(args);
 		Environment env = ctx.getEnvironment();

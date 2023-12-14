@@ -2,6 +2,7 @@ package gov.epa.ccte.api.exposure.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.Type;
 
@@ -11,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import org.hibernate.type.SqlTypes;
+
 
 import java.time.Instant;
 
