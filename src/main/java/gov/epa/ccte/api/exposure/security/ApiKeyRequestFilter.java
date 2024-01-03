@@ -152,7 +152,7 @@ public class ApiKeyRequestFilter extends GenericFilterBean {
     }
 
 
-    private String getApiKeyFromQueryParam(String query) throws UnsupportedEncodingException {
+    private String getApiKeyFromQueryParam(String query)
 
         // an example -  format=svg&x-api-key=f1d96bdd-223a-434e-b1c0-af373a59a19e
 
