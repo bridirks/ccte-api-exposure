@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
-@Table(name = "qsur_data", schema = "ep")
+@Table(name = "v_qsur_data", schema = "ep")
 public class QsurData {
     @Id
     @Column(name = "id", nullable = false)

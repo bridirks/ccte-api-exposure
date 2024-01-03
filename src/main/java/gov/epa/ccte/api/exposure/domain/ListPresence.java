@@ -17,7 +17,7 @@ import org.hibernate.type.SqlTypes;
 @Getter
 @Setter
 @Entity
-@Table(name = "list_presence", schema = "ep")
+@Table(name = "v_list_presence", schema = "ep")
 public class ListPresence {
     @Id
     @Column(name = "id", nullable = false)

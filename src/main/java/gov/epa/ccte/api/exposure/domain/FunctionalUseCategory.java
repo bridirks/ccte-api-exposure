@@ -19,7 +19,7 @@ import java.time.Instant;
 @Getter
 @Setter
 @Entity
-@Table(name = "dashboard_functionalusecategory", schema = "ep")
+@Table(name = "v_functional_use_category", schema = "ep")
 public class FunctionalUseCategory {
     @Id
     @Column(name = "id")
