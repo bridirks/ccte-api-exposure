@@ -4,12 +4,12 @@ echo "*** Building app ..."
 echo "*** Selecting the production space in epa-ccte organization..."
 cf target -o epa-ccte -s prod
 echo "*** Deleting previous app instance..."
-cf delete -f -r ccte-chemical-prod
+cf delete -f -r ccte-exposure-prod
 echo "*** Pushing the app with stg manifest file..."
 cf push -f manifest-prod.yml --no-start
 echo "*** Binding the database service to the app..."
-cf bind-service ccte-chemical-prod ccte-db-prod2
+cf bind-service ccte-exposure-prod ccte-db-prod2
 echo "*** Restaging the app to enable the server connection..."
-cf restage ccte-chemical-prod
+cf restage ccte-exposure-prod
 echo "*** Showing recent logs of the app..."
-cf logs ccte-chemical-prod --recent
+cf logs ccte-exposure-prod --recent
