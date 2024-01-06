@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Entity
-@Table(name = "product_data", schema = "ep")
+@Table(name = "v_product_data", schema = "ep")
 public class ProductData {
     @Id
     @Column(name = "id", nullable = false)

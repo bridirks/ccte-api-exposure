@@ -13,7 +13,7 @@ import jakarta.validation.constraints.Size;
 @Getter
 @Setter
 @Entity
-@Table(name = "list_presence_tag", schema = "ep")
+@Table(name = "v_list_presence_tag", schema = "ep")
 public class ListPresenceTag {
     @Id
     @Column(name = "id", nullable = false)

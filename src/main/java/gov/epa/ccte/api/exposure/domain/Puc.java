@@ -15,7 +15,7 @@ import org.hibernate.type.SqlTypes;
 @Getter
 @Setter
 @Entity
-@Table(name = "puc", schema = "ep")
+@Table(name = "v_puc", schema = "ep")
 public class Puc {
     @Id
     @Column(name = "id")

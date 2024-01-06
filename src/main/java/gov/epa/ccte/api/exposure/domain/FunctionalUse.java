@@ -13,7 +13,7 @@ import jakarta.validation.constraints.Size;
 @Getter
 @Setter
 @Entity
-@Table(name = "functional_use", schema = "ep")
+@Table(name = "v_functional_use", schema = "ep")
 public class FunctionalUse {
     @Id
     @Column(name = "id")
