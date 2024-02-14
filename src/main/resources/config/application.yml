@@ -55,6 +55,7 @@ springdoc:
     enabled: true
   swagger-ui:
     enabled: true
+    path: /exposure/
 
 server:
   servlet:
