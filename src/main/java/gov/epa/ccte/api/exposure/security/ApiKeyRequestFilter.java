@@ -9,6 +9,7 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
@@ -37,6 +38,8 @@ public class ApiKeyRequestFilter extends GenericFilterBean {
     private final ConcurrentHashMap<String, String> approvedOriginStore;// = new ConcurrentHashMap();
     private final ObjectMapper mapper = new ObjectMapper();
     private final String keyName;
+
+    private final String[] skipPaths = {"/chemical/file/","swagger","api-docs"};
 
     public ApiKeyRequestFilter(ConcurrentHashMap<UUID, String> keyStore,
                                ConcurrentHashMap<String, String> approvedOriginStore,
@@ -89,11 +92,6 @@ public class ApiKeyRequestFilter extends GenericFilterBean {
 
         HttpServletRequest req = (HttpServletRequest) servletRequest;
 
-//        if(path.startsWith("/api") == false){
-//            filterChain.doFilter(servletRequest, servletResponse);
-//            return;
-//        }
-
         //
         if(shouldCheckApiKey(req)) {
             log.info("*** API key check is checking ***");
@@ -139,8 +137,8 @@ public class ApiKeyRequestFilter extends GenericFilterBean {
 
         log.debug("method = {}, origin = {}, referer ={}, refererdHost = {}, path={} ",method, origin, referer, refererdHost, path);
 
-        // if chemical/file path - allow access to images without any api key
-        if(path.contains("/chemical/file/")){
+        // if chemical/file path - allow access to images without any api key -- /v3/api-docs
+        if(StringUtils.containsAny(path, skipPaths)){
             log.debug("skipping api-key check");
             return false;
         }
