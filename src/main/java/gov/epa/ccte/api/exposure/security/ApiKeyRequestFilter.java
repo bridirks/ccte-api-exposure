@@ -133,7 +133,7 @@ public class ApiKeyRequestFilter extends GenericFilterBean {
         log.debug("method = {}, origin = {}, referer ={}, refererdHost = {}, path={} ",method, origin, referer, refererdHost, path);
 
         // not security for health endpoint
-        if( path.contains("/chemical/health")){
+        if( path.contains("/exposure/health")){
             log.debug("skipping api-key check");
             return false;
         }
