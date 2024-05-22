@@ -1,7 +1,6 @@
 package gov.epa.ccte.api.exposure.web.rest;
 
 import gov.epa.ccte.api.exposure.domain.DemoExpoPrediction;
-import gov.epa.ccte.api.exposure.projection.FunctionalUseAll;
 import gov.epa.ccte.api.exposure.repository.DemoExpoPredictionRepository;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -32,8 +31,8 @@ public class DemoExpoPredictionResource {
     DemoExpoPrediction getDemoExpoPredictionByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid")String dtxsid) {
         log.debug("demographic exposure prediction for dtxsid = {}", dtxsid);
 
-        DemoExpoPrediction data = repository.findByDtxsid(dtxsid);
+        return repository.findByDtxsid(dtxsid);
 
-        return data;
+
     }
 }

@@ -1,8 +1,6 @@
 package gov.epa.ccte.api.exposure.web.rest;
 
-import gov.epa.ccte.api.exposure.domain.DemoExpoPrediction;
 import gov.epa.ccte.api.exposure.domain.GenExpoPrediction;
-import gov.epa.ccte.api.exposure.repository.DemoExpoPredictionRepository;
 import gov.epa.ccte.api.exposure.repository.GenExpoPredictionRepository;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -32,8 +30,7 @@ public class GenExpoPredictionResource {
     GenExpoPrediction getGenExpoPredictionByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid")String dtxsid) {
         log.debug("general exposure prediction for dtxsid = {}", dtxsid);
 
-        GenExpoPrediction data = repository.findByDtxsid(dtxsid);
+         return repository.findByDtxsid(dtxsid);
 
-        return data;
     }
 }
