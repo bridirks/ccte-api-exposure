@@ -9,6 +9,8 @@ import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
+
 @SpringBootTest
 @Testcontainers
 @ActiveProfiles("test")
@@ -22,4 +24,8 @@ class ExposureApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	public void applicationStarts(){
+		assertThatCode(() -> ExposureApplication.main(new String[]{})).doesNotThrowAnyException();
+	}
 }
