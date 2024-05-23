@@ -40,6 +40,19 @@ create table ep.v_puc
     definition text
 );
 
+create table ep.v_functional_use
+(
+    id               bigint,
+    dtxsid           varchar(50),
+    datatype         varchar(50),
+    docid            integer,
+    doctitle         varchar(500),
+    docdate          varchar(25),
+    reportedfunction varchar(255),
+    functioncategory varchar(100)
+);
+
+
 
 
 
