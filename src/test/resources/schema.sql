@@ -27,3 +27,19 @@ create table ep.v_product_data
     weightfractiontype    varchar(50),
     component             varchar(200)
 );
+
+create table ep.v_puc
+(
+    id         bigint not null
+        constraint puc_pkey
+            primary key,
+    kind_name  varchar(50),
+    gen_cat    varchar(50),
+    prodfam    varchar(50),
+    prodtype   varchar(100),
+    definition text
+);
+
+
+
+
