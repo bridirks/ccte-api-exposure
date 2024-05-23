@@ -40,6 +40,25 @@ create table ep.v_puc
     definition text
 );
 
+create table ep.v_demo_expo_predictions
+(
+    id          serial
+        constraint pk_v_demo_expo_predictions
+            primary key,
+    dtxsid      varchar(20),
+    demographic varchar(25),
+    predictor   varchar(25),
+    median      double precision,
+    l95         double precision,
+    u95         double precision,
+    units       varchar(20),
+    ad          integer,
+    reference   varchar(20),
+    import_date timestamp default now()
+);
+
+
+
 
 
 
