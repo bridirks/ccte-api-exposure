@@ -302,5 +302,13 @@ INSERT INTO ep.v_puc (id, kind_name, gen_cat, prodfam, prodtype, definition) VAL
 INSERT INTO ep.v_puc (id, kind_name, gen_cat, prodfam, prodtype, definition) VALUES (318, 'Formulation', 'Arts and crafts/office supplies', 'children''s art and toys', 'crayons', 'wax crayons for coloring or illustration');
 INSERT INTO ep.v_puc (id, kind_name, gen_cat, prodfam, prodtype, definition) VALUES (321, 'Formulation', 'Arts and crafts/office supplies', 'children''s art and toys', '', 'Children''s art supplies and toys which can not be classified into a more refined category.');
 INSERT INTO ep.v_puc (id, kind_name, gen_cat, prodfam, prodtype, definition) VALUES (326, 'Formulation', 'Arts and crafts/office supplies', 'general arts and crafts supplies', 'arts and crafts adhesive', 'glue sticks, glitter glues, fabric glues, craft glue, spray mounts, stencil sprays, and other adhesives used for primarily craft purposes');
+-- ********************************************************************************************
+-- v_demo_expo_predictions
+INSERT INTO ep.v_demo_expo_predictions (id, dtxsid, demographic, predictor, median, l95, u95, units, ad, reference, import_date) VALUES (3, 'DTXSID00195485', 'Total', 'SEEM3 Consensus', 0.0000005714, 0.0000000107, 0.0001908, 'mg/kg/day', 1, 'Ring 2018', '2024-05-03 18:29:50.948833');
+INSERT INTO ep.v_demo_expo_predictions (id, dtxsid, demographic, predictor, median, l95, u95, units, ad, reference, import_date) VALUES (7, 'DTXSID00195445', 'Total', 'SEEM3 Consensus', 0.0000004127, 0.000000006648, 0.0001282, 'mg/kg/day', 0, 'Ring 2018', '2024-05-03 18:29:50.948833');
+INSERT INTO ep.v_demo_expo_predictions (id, dtxsid, demographic, predictor, median, l95, u95, units, ad, reference, import_date) VALUES (11, 'DTXSID00195405', 'Total', 'SEEM3 Consensus', 0.0000006942, 0.000000005286, 0.0001561, 'mg/kg/day', 1, 'Ring 2018', '2024-05-03 18:29:50.948833');
+INSERT INTO ep.v_demo_expo_predictions (id, dtxsid, demographic, predictor, median, l95, u95, units, ad, reference, import_date) VALUES (20, 'DTXSID00195324', 'Total', 'SEEM3 Consensus', 0.0000001649, 0.00000000694, 0.0001811, 'mg/kg/day', 1, 'Ring 2018', '2024-05-03 18:29:50.948833');
+INSERT INTO ep.v_demo_expo_predictions (id, dtxsid, demographic, predictor, median, l95, u95, units, ad, reference, import_date) VALUES (35, 'DTXSID00195167', 'Total', 'SEEM3 Consensus', 0.0000003688, 0.000000007226, 0.0001646, 'mg/kg/day', 0, 'Ring 2018', '2024-05-03 18:29:50.948833');
+
 
 
