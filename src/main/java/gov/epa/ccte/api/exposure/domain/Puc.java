@@ -1,9 +1,7 @@
 package gov.epa.ccte.api.exposure.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.annotations.Type;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,6 +12,9 @@ import org.hibernate.type.SqlTypes;
 
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "v_puc", schema = "ep")
 public class Puc {
