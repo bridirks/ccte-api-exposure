@@ -303,3 +303,4 @@ INSERT INTO ep.v_puc (id, kind_name, gen_cat, prodfam, prodtype, definition) VAL
 INSERT INTO ep.v_puc (id, kind_name, gen_cat, prodfam, prodtype, definition) VALUES (321, 'Formulation', 'Arts and crafts/office supplies', 'children''s art and toys', '', 'Children''s art supplies and toys which can not be classified into a more refined category.');
 INSERT INTO ep.v_puc (id, kind_name, gen_cat, prodfam, prodtype, definition) VALUES (326, 'Formulation', 'Arts and crafts/office supplies', 'general arts and crafts supplies', 'arts and crafts adhesive', 'glue sticks, glitter glues, fabric glues, craft glue, spray mounts, stencil sprays, and other adhesives used for primarily craft purposes');
 
+
