@@ -150,23 +150,6 @@ create table ep.v_list_presence
     keywordset       text
 );
 
-create table ep.v_list_presence
-(
-    id               bigint not null
-        constraint list_presence_pk
-            primary key,
-    dtxsid           varchar(50),
-    docid            integer,
-    doctitle         varchar(500),
-    docsubtitle      varchar(250),
-    docdate          varchar(25),
-    organization     varchar(255),
-    reportedfunction varchar(255),
-    functioncategory varchar(100),
-    component        varchar(200),
-    keywordset       text
-);
-
 create table ep.v_list_presence_tag
 (
     id             bigint not null
