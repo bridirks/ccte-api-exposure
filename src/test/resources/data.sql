@@ -340,7 +340,6 @@ INSERT INTO ep.v_gen_expo_predictions (dtxsid, production_volume, units, stockho
 INSERT INTO ep.v_gen_expo_predictions (dtxsid, production_volume, units, stockholm_convention, probability_dietary, probability_residential, probability_pesticde, probability_industrial, import_date) VALUES ('DTXSID00191048', 31.1, 'kg/day', 0, 0.5670, 0.8790, 0.1890, 0.9160, '2024-05-22 18:29:08.430585');
 INSERT INTO ep.v_gen_expo_predictions (dtxsid, production_volume, units, stockholm_convention, probability_dietary, probability_residential, probability_pesticde, probability_industrial, import_date) VALUES ('DTXSID00190511', 31.1, 'kg/day', 0, 0.3510, 0.3090, 0.4560, 0.2110, '2024-05-22 18:29:08.430585');
 INSERT INTO ep.v_gen_expo_predictions (dtxsid, production_volume, units, stockholm_convention, probability_dietary, probability_residential, probability_pesticde, probability_industrial, import_date) VALUES ('DTXSID00190354', 31.1, 'kg/day', 0, 0.3070, 0.2330, 0.2710, 0.2130, '2024-05-22 18:29:08.430585');
-
 -- ********************************************************************************************
 -- v_list_presence
 INSERT INTO ep.v_list_presence (id, dtxsid, docid, doctitle, docsubtitle, docdate, organization, reportedfunction, functioncategory, component, keywordset) VALUES (81342, 'DTXSID10883169', 1374405, '1999 Pesticide Residues in Cantaloupe', 'Pesticide residues detected in cantaloupe samples (Appendix E)', '1999', 'USDA', 'Insecticide', 'Biocide', '', 'agricultural; detected; fruits_and_vegetables; Pesticides; residue');
