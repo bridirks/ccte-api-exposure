@@ -40,6 +40,65 @@ create table ep.v_puc
     definition text
 );
 
+create table ep.v_demo_expo_predictions
+(
+    id          serial
+        constraint pk_v_demo_expo_predictions
+            primary key,
+    dtxsid      varchar(20),
+    demographic varchar(25),
+    predictor   varchar(25),
+    median      double precision,
+    l95         double precision,
+    u95         double precision,
+    units       varchar(20),
+    ad          integer,
+    reference   varchar(20),
+    import_date timestamp default now()
+);
+
+create table ep.v_functional_use_category
+(
+    id            integer,
+    created_at    timestamp,
+    updated_at    timestamp,
+    title         varchar(100),
+    description   text,
+    created_by_id integer,
+    updated_by_id integer
+);
+
+create table ep.v_functional_use
+(
+    id               bigint,
+    dtxsid           varchar(50),
+    datatype         varchar(50),
+    docid            integer,
+    doctitle         varchar(500),
+    docdate          varchar(25),
+    reportedfunction varchar(255),
+    functioncategory varchar(100)
+);
+
+create table ep.v_gen_expo_predictions
+(
+    dtxsid                  varchar(20),
+    production_volume       numeric,
+    units                   varchar(7),
+    stockholm_convention    integer,
+    probability_dietary     numeric(5, 4),
+    probability_residential numeric(5, 4),
+    probability_pesticde    numeric(5, 4),
+    probability_industrial  numeric(5, 4),
+    import_date             timestamp default now()
+);
+
+
+
+
+
+
+
 
 
 
