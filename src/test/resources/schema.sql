@@ -68,10 +68,116 @@ create table ep.v_functional_use_category
     updated_by_id integer
 );
 
+create table ep.v_functional_use_category
+(
+    id            integer,
+    created_at    timestamp,
+    updated_at    timestamp,
+    title         varchar(100),
+    description   text,
+    created_by_id integer,
+    updated_by_id integer
+);
 
+create table ep.v_functional_use
+(
+    id               bigint,
+    dtxsid           varchar(50),
+    datatype         varchar(50),
+    docid            integer,
+    doctitle         varchar(500),
+    docdate          varchar(25),
+    reportedfunction varchar(255),
+    functioncategory varchar(100)
+);
 
+create table ep.v_gen_expo_predictions
+(
+    dtxsid                  varchar(20),
+    production_volume       numeric,
+    units                   varchar(7),
+    stockholm_convention    integer,
+    probability_dietary     numeric(5, 4),
+    probability_residential numeric(5, 4),
+    probability_pesticde    numeric(5, 4),
+    probability_industrial  numeric(5, 4),
+    import_date             timestamp default now()
+);
 
+create table ep.v_list_presence
+(
+    id               bigint not null
+        constraint list_presence_pk
+            primary key,
+    dtxsid           varchar(50),
+    docid            integer,
+    doctitle         varchar(500),
+    docsubtitle      varchar(250),
+    docdate          varchar(25),
+    organization     varchar(255),
+    reportedfunction varchar(255),
+    functioncategory varchar(100),
+    component        varchar(200),
+    keywordset       text
+);
 
+create table ep.v_list_presence_tag
+(
+    id             bigint not null
+        constraint list_presence_tag_pk
+            primary key,
+    tag_name       varchar(100),
+    tag_definition varchar(750),
+    kind_name      varchar(50)
+);
 
+create table ep.v_gen_expo_predictions
+(
+    dtxsid                  varchar(20),
+    production_volume       numeric,
+    units                   varchar(7),
+    stockholm_convention    integer,
+    probability_dietary     numeric(5, 4),
+    probability_residential numeric(5, 4),
+    probability_pesticde    numeric(5, 4),
+    probability_industrial  numeric(5, 4),
+    import_date             timestamp default now()
+);
 
+create table ep.v_list_presence
+(
+    id               bigint not null
+        constraint list_presence_pk
+            primary key,
+    dtxsid           varchar(50),
+    docid            integer,
+    doctitle         varchar(500),
+    docsubtitle      varchar(250),
+    docdate          varchar(25),
+    organization     varchar(255),
+    reportedfunction varchar(255),
+    functioncategory varchar(100),
+    component        varchar(200),
+    keywordset       text
+);
+
+create table ep.v_list_presence_tag
+(
+    id             bigint not null
+        constraint list_presence_tag_pk
+            primary key,
+    tag_name       varchar(100),
+    tag_definition varchar(750),
+    kind_name      varchar(50)
+);
+
+create table ep.v_qsur_data
+(
+    id                        integer default nextval('ep.qsur_data_id_seq'::regclass) not null
+        constraint qsur_data_pk
+            primary key,
+    dtxsid                    varchar(50),
+    harmonized_functional_use varchar(50),
+    probability               numeric
+);
 
