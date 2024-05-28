@@ -320,6 +320,7 @@ INSERT INTO ep.v_functional_use_category (id, created_at, updated_at, title, des
 INSERT INTO ep.v_functional_use_category (id, created_at, updated_at, title, description, created_by_id, updated_by_id) VALUES (49, '2021-02-12 18:09:17.996740', '2021-02-12 18:09:17.996801', 'Explosion inhibitor', 'Chemical substance used to reduce the explosion potential of flammable materials.', 23, 23);
 INSERT INTO ep.v_functional_use_category (id, created_at, updated_at, title, description, created_by_id, updated_by_id) VALUES (76, '2021-02-12 18:21:38.495522', '2021-02-12 18:21:38.495546', 'Lubricating agent', 'Chemical substance introduced between two moving surfaces or adjacent solid surface to reduce the friction between them, improve efficiency, reduce wear, and reduce heat generation. Enhances the lubricity of other substances to shear easily by minimizing contact between the rubbing surfaces so that the frictional force opposing the rubbing motion is low.', 23, 23);
 INSERT INTO ep.v_functional_use_category (id, created_at, updated_at, title, description, created_by_id, updated_by_id) VALUES (83, '2021-02-12 18:23:42.614532', '2021-02-12 18:23:42.614558', 'Photosensitizers', 'Chemical substance that absorbs electromagnetic radiation and transfers energy to other materials making them susceptible to chemical change. e.g., activation of photographic emulsions; and photoresist.', 23, 23);
+
 -- ********************************************************************************************
 -- v_functional_use
 INSERT INTO ep.v_functional_use (id, dtxsid, datatype, docid, doctitle, docdate, reportedfunction, functioncategory) VALUES (110329, 'DTXSID0020440', 'Chemical presence list', 1374732, '2006 Pesticide Residues in Water, Untreated', 'December 2007', 'Herbicide', 'Biocide');
@@ -382,6 +383,4 @@ INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VAL
 INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VALUES (73, 'IFRA Transparency', 'substances on the International Fragrance Association''s ordered register of all fragrance ingredients used in consumer goods by the fragrance industry''s customers worldwide', 'Specialty list');
 INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VALUES (89, 'OEHHA Proposition 65 (3/2019)', 'California Office of Environmental Health Hazard Assessment Proposition 65; version of list updated 3/18/2019', 'Specialty list');
 INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VALUES (97, 'Personal care - body hygiene - body wash', 'body cleaners, washes, shower gels', 'PUC - formulation');
-
-
 

@@ -68,6 +68,17 @@ create table ep.v_functional_use_category
     updated_by_id integer
 );
 
+create table ep.v_functional_use_category
+(
+    id            integer,
+    created_at    timestamp,
+    updated_at    timestamp,
+    title         varchar(100),
+    description   text,
+    created_by_id integer,
+    updated_by_id integer
+);
+
 create table ep.v_functional_use
 (
     id               bigint,
