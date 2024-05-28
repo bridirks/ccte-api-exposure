@@ -93,12 +93,40 @@ create table ep.v_gen_expo_predictions
     import_date             timestamp default now()
 );
 
+create table ep.v_list_presence
+(
+    id               bigint not null
+        constraint list_presence_pk
+            primary key,
+    dtxsid           varchar(50),
+    docid            integer,
+    doctitle         varchar(500),
+    docsubtitle      varchar(250),
+    docdate          varchar(25),
+    organization     varchar(255),
+    reportedfunction varchar(255),
+    functioncategory varchar(100),
+    component        varchar(200),
+    keywordset       text
+);
 
+create table ep.v_list_presence_tag
+(
+    id             bigint not null
+        constraint list_presence_tag_pk
+            primary key,
+    tag_name       varchar(100),
+    tag_definition varchar(750),
+    kind_name      varchar(50)
+);
 
-
-
-
-
-
-
+create table ep.v_qsur_data
+(
+    id                        integer default nextval('ep.qsur_data_id_seq'::regclass) not null
+        constraint qsur_data_pk
+            primary key,
+    dtxsid                    varchar(50),
+    harmonized_functional_use varchar(50),
+    probability               numeric
+);
 
