@@ -170,23 +170,3 @@ create table ep.v_qsur_data
     probability               numeric
 );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
