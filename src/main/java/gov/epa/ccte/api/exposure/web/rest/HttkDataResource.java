@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * REST controller for getting the {@link gov.epa.ccte.api.exposure.domain.HttkData}s.
  */
@@ -21,14 +23,19 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class HttkDataResource {
-    private final HttkDataRepository repository;
 
-    public HttkDataResource(HttkDataRepository repository) {this.repository = repository;}
-    @RequestMapping(value = "/exposure/httk/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    HttkData getHttkDataByDtxsid(@Parameter(required = true, description = "Httk Data by DTXSID", example = "DTXSID0027301") @PathVariable("dtxsid")String dtxsid) {
+    final private HttkDataRepository httkDataRepository;
+
+    public HttkDataResource( HttkDataRepository httkDataRepository) {
+        this.httkDataRepository = httkDataRepository;
+
+    }
+
+    @RequestMapping(value = "exposure/httk/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    List<HttkData> getHttkDataByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid")String dtxsid) {
         log.debug("Httk Data by dtxsid = {}", dtxsid);
 
-        return repository.findByDtxsid(dtxsid);
+        return httkDataRepository.findAll();
 
     }
 }

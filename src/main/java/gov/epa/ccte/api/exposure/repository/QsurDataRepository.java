@@ -10,5 +10,4 @@ import java.util.List;
 @RepositoryRestResource(exported = false)
 public interface QsurDataRepository extends JpaRepository<QsurData, Integer> {
     <T> List<T> findByDtxsidOrderByHarmonizedFunctionalUseAsc(String dtxsid, Class<T> type);
-
 }
