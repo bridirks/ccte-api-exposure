@@ -383,3 +383,4 @@ INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VAL
 INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VALUES (89, 'OEHHA Proposition 65 (3/2019)', 'California Office of Environmental Health Hazard Assessment Proposition 65; version of list updated 3/18/2019', 'Specialty list');
 INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VALUES (97, 'Personal care - body hygiene - body wash', 'body cleaners, washes, shower gels', 'PUC - formulation');
 
+
