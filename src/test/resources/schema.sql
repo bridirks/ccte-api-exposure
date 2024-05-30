@@ -120,12 +120,22 @@ create table ep.v_list_presence_tag
     kind_name      varchar(50)
 );
 
-create table ep.v_qsur_data
+create table ep.v_httk_data
 (
-    id                        integer default nextval('ep.qsur_data_id_seq'::regclass) not null
-        constraint qsur_data_pk
+    id                  serial
+        constraint pk_v_httk_data
             primary key,
-    dtxsid                    varchar(50),
-    harmonized_functional_use varchar(50),
-    probability               numeric
+    dtxsid              varchar(20),
+    parameter           varchar(15),
+    measured            numeric,
+    predicted           numeric,
+    units               varchar(30),
+    model               varchar(15),
+    reference           varchar(150),
+    percentile          varchar(5),
+    species             varchar(10),
+    data_source_species varchar(10),
+    import_date         timestamp default now()
 );
+
+
