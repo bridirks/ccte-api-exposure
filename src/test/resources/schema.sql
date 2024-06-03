@@ -170,4 +170,23 @@ create table ep.v_qsur_data
     probability               numeric
 );
 
+create table ep.v_qsur_data
+(
+    id                        integer default nextval('ep.qsur_data_id_seq'::regclass) not null
+        constraint qsur_data_pk
+            primary key,
+    dtxsid                    varchar(50),
+    harmonized_functional_use varchar(50),
+    probability               numeric
+);
+
+
+
+
+
+
+
+
+
+
 
