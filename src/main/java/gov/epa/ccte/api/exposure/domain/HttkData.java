@@ -64,7 +64,6 @@ public class HttkData {
 
     @Size(max = 10)
     @Column(name = "species", length = 10)
-    @Schema(description = "")
     private String species;
 
     @Size(max = 10)
