@@ -80,7 +80,6 @@ create table ep.v_functional_use
     functioncategory varchar(100)
 );
 
-
 create table ep.v_list_presence
 (
     id               bigint not null
@@ -120,6 +119,25 @@ create table ep.v_gen_expo_predictions
     probability_industrial  numeric(5, 4),
     import_date             timestamp default now()
 );
+
+create table ep.v_httk_data
+(
+    id                  serial
+        constraint pk_v_httk_data
+            primary key,
+    dtxsid              varchar(20),
+    parameter           varchar(15),
+    measured            numeric,
+    predicted           numeric,
+    units               varchar(30),
+    model               varchar(15),
+    reference           varchar(150),
+    percentile          varchar(5),
+    species             varchar(10),
+    data_source_species varchar(10),
+    import_date         timestamp default now()
+);
+
 create sequence ep.qsur_data_id_seq
     as integer;
 
@@ -134,5 +152,9 @@ create table ep.v_qsur_data
 );
 
 alter sequence ep.qsur_data_id_seq owned by ep.v_qsur_data.id;
+
+
+
+
 
 
