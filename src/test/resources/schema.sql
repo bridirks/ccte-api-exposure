@@ -80,19 +80,6 @@ create table ep.v_functional_use
     functioncategory varchar(100)
 );
 
-create table ep.v_gen_expo_predictions
-(
-    dtxsid                  varchar(20),
-    production_volume       numeric,
-    units                   varchar(7),
-    stockholm_convention    integer,
-    probability_dietary     numeric(5, 4),
-    probability_residential numeric(5, 4),
-    probability_pesticde    numeric(5, 4),
-    probability_industrial  numeric(5, 4),
-    import_date             timestamp default now()
-);
-
 create table ep.v_list_presence
 (
     id               bigint not null
@@ -120,6 +107,19 @@ create table ep.v_list_presence_tag
     kind_name      varchar(50)
 );
 
+create table ep.v_gen_expo_predictions
+(
+    dtxsid                  varchar(20),
+    production_volume       numeric,
+    units                   varchar(7),
+    stockholm_convention    integer,
+    probability_dietary     numeric(5, 4),
+    probability_residential numeric(5, 4),
+    probability_pesticde    numeric(5, 4),
+    probability_industrial  numeric(5, 4),
+    import_date             timestamp default now()
+);
+
 create table ep.v_httk_data
 (
     id                  serial
@@ -137,5 +137,24 @@ create table ep.v_httk_data
     data_source_species varchar(10),
     import_date         timestamp default now()
 );
+
+create sequence ep.qsur_data_id_seq
+    as integer;
+
+create table ep.v_qsur_data
+(
+    id                        integer default nextval('ep.qsur_data_id_seq'::regclass) not null
+        constraint qsur_data_pk
+            primary key,
+    dtxsid                    varchar(50),
+    harmonized_functional_use varchar(50),
+    probability               numeric
+);
+
+alter sequence ep.qsur_data_id_seq owned by ep.v_qsur_data.id;
+
+
+
+
 
 

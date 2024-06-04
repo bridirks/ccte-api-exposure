@@ -382,7 +382,6 @@ INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VAL
 INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VALUES (73, 'IFRA Transparency', 'substances on the International Fragrance Association''s ordered register of all fragrance ingredients used in consumer goods by the fragrance industry''s customers worldwide', 'Specialty list');
 INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VALUES (89, 'OEHHA Proposition 65 (3/2019)', 'California Office of Environmental Health Hazard Assessment Proposition 65; version of list updated 3/18/2019', 'Specialty list');
 INSERT INTO ep.v_list_presence_tag (id, tag_name, tag_definition, kind_name) VALUES (97, 'Personal care - body hygiene - body wash', 'body cleaners, washes, shower gels', 'PUC - formulation');
--- ********************************************************************************************
 -- v_httk_data
 INSERT INTO ep.v_httk_data (id, dtxsid, parameter, measured, predicted, units, model, reference, percentile, species, data_source_species, import_date) VALUES (1, 'DTXSID0027301', 'Css', null, 4.273, 'mg/L', '3compartmentss', 'NA', '95%', 'Human', 'Human', '2024-05-03 18:25:10.349430');
 INSERT INTO ep.v_httk_data (id, dtxsid, parameter, measured, predicted, units, model, reference, percentile, species, data_source_species, import_date) VALUES (2, 'DTXSID0027301', 'Css', null, 0.7903, 'mg/L', '3compartmentss', 'NA', '50%', 'Human', 'Human', '2024-05-03 18:25:10.349430');
@@ -420,3 +419,28 @@ INSERT INTO ep.v_httk_data (id, dtxsid, parameter, measured, predicted, units, m
 INSERT INTO ep.v_httk_data (id, dtxsid, parameter, measured, predicted, units, model, reference, percentile, species, data_source_species, import_date) VALUES (9998, 'DTXSID0027301', 'Clint', 0, null, 'uL/min/million hepatocytes', 'NA', 'https://doi.org/10.1021/acs.est.0c06117', 'NA', 'Rat', 'Human', '2024-05-03 18:25:10.349430');
 INSERT INTO ep.v_httk_data (id, dtxsid, parameter, measured, predicted, units, model, reference, percentile, species, data_source_species, import_date) VALUES (9999, 'DTXSID0027301', 'Css', null, 4.273, 'mg/L', 'PBTK', 'NA', '95%', 'Human', 'Human', '2024-05-03 18:25:10.349430');
 INSERT INTO ep.v_httk_data (id, dtxsid, parameter, measured, predicted, units, model, reference, percentile, species, data_source_species, import_date) VALUES (10000, 'DTXSID0027301', 'Css', null, 0.7903, 'mg/L', 'PBTK', 'NA', '50%', 'Human', 'Human', '2024-05-03 18:25:10.349430');
+-- ********************************************************************************************
+-- v_qsur_data
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (482, 'DTXSID001015858', 'additive', 0.9619);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (1128830, 'DTXSID001015858', 'antioxidant', 0.445);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (1256596, 'DTXSID001015858', 'buffer', 0.518);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (1647622, 'DTXSID001015858', 'chelator', 0.7069);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (1977707, 'DTXSID001015858', 'colorant', 0.1186);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (2235170, 'DTXSID001015858', 'emollient', 0.4378);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (3306404, 'DTXSID001015858', 'fragrance', 0.003);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (3490666, 'DTXSID001015858', 'hair_conditioner', 0.6314);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (3761625, 'DTXSID001015858', 'humectant', 0.9679);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (4335304, 'DTXSID001015858', 'skin_conditioner', 0.9828);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (4670370, 'DTXSID001015858', 'skin_protectant', 0.8115);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (4756978, 'DTXSID001015858', 'surfactant', 0.1477);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (9, 'DTXSID201335084', 'additive', 0.9556);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (768365, 'DTXSID201335084', 'antimicrobial', 0.8165);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (1269790, 'DTXSID201335084', 'buffer', 0.9476);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (1592888, 'DTXSID201335084', 'catalyst', 0.8539);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (1647106, 'DTXSID201335084', 'chelator', 0.5124);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (2023309, 'DTXSID201335084', 'colorant', 0.2091);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (2817272, 'DTXSID201335084', 'flavorant', 0.2482);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (3361251, 'DTXSID201335084', 'fragrance', 0.0126);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (3705318, 'DTXSID201335084', 'heat_stabilizer', 0.3495);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (4390025, 'DTXSID201335084', 'skin_conditioner', 0.4343);
+INSERT INTO ep.v_qsur_data (id, dtxsid, harmonized_functional_use, probability) VALUES (4704851, 'DTXSID201335084', 'skin_protectant', 0.3096);
