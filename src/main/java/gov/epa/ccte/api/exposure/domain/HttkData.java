@@ -34,9 +34,17 @@ public class HttkData {
     @Schema(description = "The toxicokinetic parameter. Clint = Intrinsic hepatic clearance rate, Fup = fraction unbound in plasma, Vd = effective volume of distribution, Days.Css = number of days to reach steady-state from constant exposure, Css = plasma concentration after reaching steady-state, TK.Half.Life = number of hours for half of chemical in body to be eliminated")
     private String parameter;
 
+    @Size(max = 15)
+    @Column(name = "measured_text", length = 15)
+    private String measuredText;
+
     @Column(name = "measured")
     @Schema(description = "Experimentally measured value for the parameter")
     private BigDecimal measured;
+
+    @Size(max = 15)
+    @Column(name = "predicted_text", length = 15)
+    private String predictedText;
 
     @Column(name = "predicted")
     @Schema(description = "The predicted value for the parameter")
@@ -69,6 +77,10 @@ public class HttkData {
     @Size(max = 10)
     @Column(name = "data_source_species", length = 10)
     private String dataSourceSpecies;
+
+    @Size(max = 50)
+    @Column(name = "data_version", length = 50)
+    private String dataVersion;
 
     @ColumnDefault("now()")
     @Column(name = "import_date")

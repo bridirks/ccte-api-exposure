@@ -42,13 +42,25 @@ public class DemoExpoPrediction {
     @Schema(description = "The median predicted value")
     private Double median;
 
+    @Size(max = 25)
+    @Column(name = "median_text", length = 25)
+    private String medianText;
+
     @Column(name = "l95")
     @Schema(description = "The lower 95th percentile confidence value (uncertainty) for the prediction")
     private Double l95;
 
+    @Size(max = 25)
+    @Column(name = "l95_text", length = 25)
+    private String l95Text;
+
     @Column(name = "u95")
     @Schema(description = "The upper 95th percentile confidence value (uncertainty) for the prediction")
     private Double u95;
+
+    @Size(max = 25)
+    @Column(name = "u95_text", length = 25)
+    private String u95Text;
 
     @Size(max = 20)
     @Column(name = "units", length = 20)
@@ -63,6 +75,10 @@ public class DemoExpoPrediction {
     @Column(name = "reference", length = 20)
     @Schema(description = "The peer reviewed journal article explaining how the prediction was made")
     private String reference;
+
+    @Size(max = 50)
+    @Column(name = "data_version", length = 50)
+    private String dataVersion;
 
     @ColumnDefault("now()")
     @Column(name = "import_date")
