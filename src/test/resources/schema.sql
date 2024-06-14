@@ -42,20 +42,23 @@ create table ep.v_puc
 
 create table ep.v_demo_expo_predictions
 (
-    id          serial
-        constraint pk_v_demo_expo_predictions
-            primary key,
+    id          serial,
     dtxsid      varchar(20),
     demographic varchar(25),
     predictor   varchar(25),
     median      double precision,
+    median_text varchar(25),
     l95         double precision,
+    l95_text    varchar(25),
     u95         double precision,
+    u95_text    varchar(25),
     units       varchar(20),
     ad          integer,
     reference   varchar(20),
-    import_date timestamp default now()
+    data_version        varchar(50),
+    import_date         timestamp default now()
 );
+
 
 create table ep.v_functional_use_category
 (
@@ -117,24 +120,27 @@ create table ep.v_gen_expo_predictions
     probability_residential numeric(5, 4),
     probability_pesticde    numeric(5, 4),
     probability_industrial  numeric(5, 4),
-    import_date             timestamp default now()
+    data_version            varchar(50),
+    import_date         timestamp default now()
 );
+
 
 create table ep.v_httk_data
 (
-    id                  serial
-        constraint pk_v_httk_data
-            primary key,
+    id                  serial,
     dtxsid              varchar(20),
     parameter           varchar(15),
     measured            numeric,
+    measured_text       varchar(15),
     predicted           numeric,
+    predicted_text      varchar(15),
     units               varchar(30),
     model               varchar(15),
     reference           varchar(150),
     percentile          varchar(5),
     species             varchar(10),
     data_source_species varchar(10),
+    data_version        varchar(50),
     import_date         timestamp default now()
 );
 
