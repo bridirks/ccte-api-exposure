@@ -14,15 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * REST controller for getting the {@link gov.epa.ccte.api.exposure.domain.HttkData}s.
- */
-@Tag(name = "Httk Data Resource",
-        description = "API endpoints for httk data in exposure data.")
-@SecurityRequirement(name = "api_key")
+
 @Slf4j
 @RestController
-public class HttkDataResource {
+public class HttkDataResource implements HttkDataApi {
 
     final private HttkDataRepository httkDataRepository;
 
@@ -31,11 +26,10 @@ public class HttkDataResource {
 
     }
 
-    @RequestMapping(value = "exposure/httk/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    List<HttkData> getHttkDataByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid")String dtxsid) {
+    @Override
+    public List<HttkData> getHttkDataByDtxsid(String dtxsid) {
         log.debug("Httk Data by dtxsid = {}", dtxsid);
 
-        return httkDataRepository.findAll();
-
+        return httkDataRepository.findByDtxsid(dtxsid);
     }
 }
