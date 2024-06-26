@@ -19,7 +19,7 @@ public class ProductDataResource implements ProductDataApi {
     final private ProductDataRepository productDataRepository;
     final private PucRepository pucRepository;
 
-    public ProductDataResource(ProductDataRepository productDataRepository, PucRepository pucRepository, PucRepository pucRepository1) {
+    public ProductDataResource(ProductDataRepository productDataRepository, PucRepository pucRepository) {
         this.productDataRepository = productDataRepository;
         this.pucRepository = pucRepository;
     }
