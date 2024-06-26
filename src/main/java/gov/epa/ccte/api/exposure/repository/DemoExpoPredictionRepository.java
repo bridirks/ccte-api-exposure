@@ -4,9 +4,11 @@ import gov.epa.ccte.api.exposure.domain.DemoExpoPrediction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+import java.util.List;
+
 @SuppressWarnings("unused")
 @RepositoryRestResource(exported = false)
 public interface DemoExpoPredictionRepository extends JpaRepository<DemoExpoPrediction, Integer> {
 
-    DemoExpoPrediction findByDtxsid(String dtxsid);
+    List<DemoExpoPrediction> findByDtxsid(String dtxsid);
 }
