@@ -21,7 +21,7 @@ public class ProductDataResource implements ProductDataApi {
 
     public ProductDataResource(ProductDataRepository productDataRepository, PucRepository pucRepository, PucRepository pucRepository1) {
         this.productDataRepository = productDataRepository;
-        this.pucRepository = pucRepository1;
+        this.pucRepository = pucRepository;
     }
 
     @Override
