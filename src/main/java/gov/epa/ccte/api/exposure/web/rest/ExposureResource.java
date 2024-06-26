@@ -5,7 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @CrossOrigin
-@Hidden // OpenAPI annotation for hidding endpoints from documentation generator
-public class ExposureResource {
+@Hidden // OpenAPI annotation for hiding endpoints from documentation generator
+public class ExposureResource implements ExposureApi {
     private final JdbcTemplate jdbcTemplate;
 
     public ExposureResource(JdbcTemplate jdbcTemplate) {
@@ -23,7 +22,7 @@ public class ExposureResource {
     }
 
 
-    @GetMapping("/exposure/health")
+    @Override
     public ResponseEntity health(){
 
         log.info("checking the health");
