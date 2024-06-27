@@ -4,9 +4,11 @@ import gov.epa.ccte.api.exposure.domain.GenExpoPrediction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
+import java.util.List;
+
 @SuppressWarnings("unused")
 @RepositoryRestResource(exported = false)
 public interface GenExpoPredictionRepository extends JpaRepository<GenExpoPrediction, String> {
 
-    GenExpoPrediction findByDtxsid(String dtxsid);
+    List<GenExpoPrediction> findByDtxsid(String dtxsid);
 }
