@@ -6,27 +6,14 @@ import gov.epa.ccte.api.exposure.projection.FunctionalUseAll;
 import gov.epa.ccte.api.exposure.repository.FunctionalUseCategoryRepository;
 import gov.epa.ccte.api.exposure.repository.FunctionalUseRepository;
 import gov.epa.ccte.api.exposure.repository.QsurDataRepository;
-import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * REST controller for getting the {@link gov.epa.ccte.api.exposure.domain.FunctionalUse}s.
- */
-@Tag(name = "Functional Use Resource",
-        description = "API endpoints for functional use in exposure data.")
-@SecurityRequirement(name = "api_key")
 @Slf4j
 @RestController
-public class FunctionalUseResource {
+public class FunctionalUseResource implements FunctionalUseApi {
 
         private final FunctionalUseRepository repository;
         private final FunctionalUseCategoryRepository categoryRepository;
@@ -38,8 +25,8 @@ public class FunctionalUseResource {
         this.qsurDataRepository = qsurDataRepository;
     }
 
-    @RequestMapping(value = "exposure/functional-use/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    List<FunctionalUseAll> getFunctionalUseByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid")String dtxsid) {
+    @Override
+    public List<FunctionalUseAll> getFunctionalUseByDtxsid(String dtxsid) {
         log.debug("all functional use for dtxsid = {}", dtxsid);
 
         List<FunctionalUseAll> data = repository.findByDtxsid(dtxsid, FunctionalUseAll.class);
@@ -47,15 +34,15 @@ public class FunctionalUseResource {
         return data;
     }
 
-    @RequestMapping(value = "exposure/functional-use/category", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    List<FunctionalUseCategory> getFunctionalUseCategory(){
+    @Override
+    public List<FunctionalUseCategory> getFunctionalUseCategory(){
         log.debug("all functional use category");
         List<FunctionalUseCategory> data = categoryRepository.findAll();
         return data;
     }
 
-    @RequestMapping(value = "exposure/functional-use/probability/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    List<QsurDataAll> getFunctionalUseProbabilityByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid")String dtxsid) {
+    @Override
+    public List<QsurDataAll> getFunctionalUseProbabilityByDtxsid(String dtxsid) {
         log.debug("all functional use probability for dtxsid = {}", dtxsid);
 
         List<QsurDataAll> data = qsurDataRepository.findByDtxsidOrderByHarmonizedFunctionalUseAsc(dtxsid, QsurDataAll.class);
