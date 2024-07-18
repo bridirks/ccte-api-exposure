@@ -25,7 +25,7 @@ import java.util.List;
 @RequestMapping( value = "exposure/seem/demographic", produces = MediaType.APPLICATION_JSON_VALUE)
 public interface DemoExpoPredictionApi {
 
-    @Operation(summary = "Find demographic prediction SEEMs data by dtxsid", description = "return demographic prediction SEEMs data for requested dtxsid.", tags = {"exposure","seem","demographic"})
+    @Operation(summary = "Find demographic prediction SEEMs data by dtxsid", description = "return demographic prediction SEEMs data for requested dtxsid.")
     @ApiResponses(value= {
             @ApiResponse(responseCode = "200", description = "OK", content = @Content( mediaType = "application/json",
             schema = @Schema(oneOf = DemoExpoPrediction.class)))

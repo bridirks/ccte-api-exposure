@@ -26,7 +26,7 @@ import java.util.List;
 @RequestMapping( value = "exposure/list-presence", produces = MediaType.APPLICATION_JSON_VALUE )
 public interface ListPresenceApi {
 
-    @Operation(summary = "Find list presence data by dtxsid and produce list presence tags", description = "return list presence data for requested dtxsid or list presence tags.", tags = {"list-presence","exposure"})
+    @Operation(summary = "Find list presence data by dtxsid and produce list presence tags", description = "return list presence data for requested dtxsid or list presence tags.")
     @ApiResponses(value= {
             @ApiResponse(responseCode = "200", description = "OK", content = @Content(mediaType = "application/json",
                     schema = @Schema(oneOf = {ListPresence.class}))),

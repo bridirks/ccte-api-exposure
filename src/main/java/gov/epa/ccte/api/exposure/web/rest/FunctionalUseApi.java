@@ -28,7 +28,7 @@ import java.util.List;
 @RequestMapping( value = "exposure/functional-use", produces = MediaType.APPLICATION_JSON_VALUE )
 public interface FunctionalUseApi {
 
-    @Operation(summary = "Find functional-use data by dtxsid, find functional-use categories, or find functional-use probability by dtxsid", description = "return functional-use data or probability for requested dtxsid or all functional-use categories.", tags = {"functional-use","exposure"})
+    @Operation(summary = "Find functional-use data by dtxsid, find functional-use categories, or find functional-use probability by dtxsid", description = "return functional-use data or probability for requested dtxsid or all functional-use categories.")
     @ApiResponses(value= {
             @ApiResponse(responseCode = "200", description = "OK",  content = @Content( mediaType = "application/json",
                     schema=@Schema(oneOf = {FunctionalUse.class}))),

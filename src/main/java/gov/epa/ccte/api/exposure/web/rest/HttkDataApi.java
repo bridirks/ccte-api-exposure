@@ -25,7 +25,7 @@ import java.util.List;
 @RequestMapping( value = "exposure/httk", produces = MediaType.APPLICATION_JSON_VALUE)
 public interface HttkDataApi {
 
-    @Operation(summary = "Find httk data by dtxsid", description = "return httk data for requested dtxsid.", tags = {"httk","exposure"})
+    @Operation(summary = "Find httk data by dtxsid", description = "return httk data for requested dtxsid.")
     @ApiResponses(value= {
             @ApiResponse(responseCode = "200", description = "OK",  content = @Content( mediaType = "application/json",
                     schema=@Schema(oneOf = {HttkData.class}))),

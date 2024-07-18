@@ -25,7 +25,7 @@ import java.util.List;
 @RequestMapping( value = "exposure/seem/general", produces = MediaType.APPLICATION_JSON_VALUE )
 public interface GenExpoPredictionApi {
 
-    @Operation(summary = "Find general exposure prediction data by dtxsid", description = "return general exposure prediction data for requested dtxsid.", tags = {"general","exposure"})
+    @Operation(summary = "Find general exposure prediction data by dtxsid", description = "return general exposure prediction data for requested dtxsid.")
     @ApiResponses(value= {
             @ApiResponse(responseCode = "200", description = "OK",  content = @Content( mediaType = "application/json",
                     schema=@Schema(oneOf = {GenExpoPrediction.class}))),

@@ -26,7 +26,7 @@ import java.util.List;
 @RequestMapping( value = "exposure/product-data" , produces = MediaType.APPLICATION_JSON_VALUE )
 public interface ProductDataApi {
 
-    @Operation(summary = "Find product data by dtxsid or list all puc product data", description = "return product data for requested dtxsid or puc product data.", tags = {"product-data","exposure"})
+    @Operation(summary = "Find product data by dtxsid or list all puc product data", description = "return product data for requested dtxsid or puc product data.")
     @ApiResponses(value= {
             @ApiResponse(responseCode = "200", description = "OK",  content = @Content( mediaType = "application/json",
                     schema=@Schema(oneOf = {ProductData.class}))),
