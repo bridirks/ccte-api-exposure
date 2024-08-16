@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>gov.epa.ccte.api</groupId>
 	<artifactId>exposure</artifactId>
-	<version>1</version>
+	<version>1.0.0</version>
 	<name>exposure</name>
 	<description>microservice for exposure</description>
 	<properties>
@@ -19,7 +19,13 @@
 		<lombok.version>1.18.24</lombok.version>
 		<mapstruct.version>1.5.3.Final</mapstruct.version>
 	</properties>
-
+        <distributionManagement>
+        	<repository>
+            		<id>github</id>
+            		<name>GitHub OWNER Apache Maven Packages</name>
+            		<url>https://maven.pkg.github.com/USEPA/ccte-api-exposure</url>
+        	</repository>
+    	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -125,7 +131,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>${project.artifactId}</finalName>
+		<finalName>${project.artifactId}-${project.version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
