@@ -1,6 +1,5 @@
 package gov.epa.ccte.api.exposure.web.rest;
 
-import gov.epa.ccte.api.exposure.domain.DemoExpoPrediction;
 import gov.epa.ccte.api.exposure.domain.GenExpoPrediction;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

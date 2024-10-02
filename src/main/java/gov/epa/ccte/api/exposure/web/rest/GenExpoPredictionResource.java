@@ -1,6 +1,5 @@
 package gov.epa.ccte.api.exposure.web.rest;
 
-import gov.epa.ccte.api.exposure.domain.DemoExpoPrediction;
 import gov.epa.ccte.api.exposure.domain.GenExpoPrediction;
 import gov.epa.ccte.api.exposure.repository.GenExpoPredictionRepository;
 import gov.epa.ccte.api.exposure.web.rest.error.HigherNumberOfDtxsidException;
