@@ -11,4 +11,7 @@ import java.util.List;
 public interface DemoExpoPredictionRepository extends JpaRepository<DemoExpoPrediction, Integer> {
 
     List<DemoExpoPrediction> findByDtxsid(String dtxsid);
+
+    <T> List<T> findByDtxsidInOrderByDtxsidAsc(String[] dtxsids, Class<T> type);
+
 }

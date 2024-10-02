@@ -11,4 +11,7 @@ import java.util.List;
 public interface GenExpoPredictionRepository extends JpaRepository<GenExpoPrediction, String> {
 
     List<GenExpoPrediction> findByDtxsid(String dtxsid);
+
+    <T> List<T> findByDtxsidInOrderByDtxsidAsc(String[] dtxsids, Class<T> type);
+
 }

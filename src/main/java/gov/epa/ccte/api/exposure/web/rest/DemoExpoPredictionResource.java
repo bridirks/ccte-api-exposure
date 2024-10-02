@@ -2,15 +2,13 @@ package gov.epa.ccte.api.exposure.web.rest;
 
 import gov.epa.ccte.api.exposure.domain.DemoExpoPrediction;
 import gov.epa.ccte.api.exposure.repository.DemoExpoPredictionRepository;
+import gov.epa.ccte.api.exposure.web.rest.error.HigherNumberOfDtxsidException;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,18 +21,32 @@ import java.util.List;
 @SecurityRequirement(name = "api_key")
 @Slf4j
 @RestController
-public class DemoExpoPredictionResource {
+public class DemoExpoPredictionResource implements DemoExpoPredictionApi{
     private final DemoExpoPredictionRepository repository;
+
+    @Value("200")
+    private Integer batchSize;
 
     public DemoExpoPredictionResource(DemoExpoPredictionRepository repository) {
         this.repository = repository;
     }
-    @RequestMapping(value = "/exposure/seem/demographic/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    List<DemoExpoPrediction> getDemoExpoPredictionByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid")String dtxsid) {
+    @Override
+    public List<DemoExpoPrediction> getDemoExpoPredictionByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid")String dtxsid) {
         log.debug("demographic exposure prediction for dtxsid = {}", dtxsid);
 
         return repository.findByDtxsid(dtxsid);
+    }
 
+    @Override
+    public @ResponseBody
+    List<DemoExpoPrediction> batchSearchDemoExpoPrediction(String[] dtxsids) {
+        log.debug("demographic exposure prediction data for dtxsid size = {}", dtxsids.length);
 
+        if(dtxsids.length > batchSize)
+            throw new HigherNumberOfDtxsidException(dtxsids.length, batchSize);
+
+        List<DemoExpoPrediction> data = repository.findByDtxsidInOrderByDtxsidAsc(dtxsids, DemoExpoPrediction.class);
+
+        return data;
     }
 }

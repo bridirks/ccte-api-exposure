@@ -1,8 +1,12 @@
 package gov.epa.ccte.api.exposure.web.rest;
 
+import gov.epa.ccte.api.exposure.domain.DemoExpoPrediction;
 import gov.epa.ccte.api.exposure.domain.GenExpoPrediction;
 import gov.epa.ccte.api.exposure.repository.GenExpoPredictionRepository;
+import gov.epa.ccte.api.exposure.web.rest.error.HigherNumberOfDtxsidException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -13,6 +17,9 @@ import java.util.List;
 public class GenExpoPredictionResource implements GenExpoPredictionApi {
     private final GenExpoPredictionRepository repository;
 
+    @Value("200")
+    private Integer batchSize;
+
     public GenExpoPredictionResource(GenExpoPredictionRepository repository) {
         this.repository = repository;
     }
@@ -21,6 +28,18 @@ public class GenExpoPredictionResource implements GenExpoPredictionApi {
         log.debug("general exposure prediction for dtxsid = {}", dtxsid);
 
          return repository.findByDtxsid(dtxsid);
+    }
 
+    @Override
+    public @ResponseBody
+    List<GenExpoPrediction> batchSearchGenExpoPrediction(String[] dtxsids) {
+        log.debug("demographic exposure prediction data for dtxsid size = {}", dtxsids.length);
+
+        if(dtxsids.length > batchSize)
+            throw new HigherNumberOfDtxsidException(dtxsids.length, batchSize);
+
+        List<GenExpoPrediction> data = repository.findByDtxsidInOrderByDtxsidAsc(dtxsids, GenExpoPrediction.class);
+
+        return data;
     }
 }

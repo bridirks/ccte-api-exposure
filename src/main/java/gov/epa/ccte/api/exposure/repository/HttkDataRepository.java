@@ -9,5 +9,9 @@ import java.util.List;
 @SuppressWarnings("unused")
 @RepositoryRestResource(exported = false)
 public interface HttkDataRepository extends JpaRepository<HttkData, Integer> {
+
     List<HttkData> findByDtxsid(String dtxsid);
+
+    <T> List<T> findByDtxsidInOrderByDtxsidAsc(String[] dtxsids, Class<T> type);
+
 }
