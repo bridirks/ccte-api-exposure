@@ -14,4 +14,6 @@ public interface FunctionalUseRepository extends JpaRepository<FunctionalUse, Lo
     @Transactional(readOnly = true)
     <T>
     List<T> findByDtxsid(String dtxsid, Class<T> type);
+
+    <T> List<T> findByDtxsidInOrderByDtxsidAsc(String[] dtxsids, Class<T> type);
 }
