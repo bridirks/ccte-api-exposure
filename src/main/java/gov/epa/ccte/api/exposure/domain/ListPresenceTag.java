@@ -3,6 +3,8 @@ package gov.epa.ccte.api.exposure.domain;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,22 +15,27 @@ import jakarta.validation.constraints.Size;
 @Getter
 @Setter
 @Entity
-@Table(name = "v_list_presence_tag", schema = "ep")
+@Table(name = "mv_t_list_presence_tags", schema = "chemexpo")
 public class ListPresenceTag {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
 
     @Size(max = 100)
-    @Column(name = "tag_name", length = 100)
+    @Column(name = "lp_tag_name", length = 100)
     private String tagName;
 
     @Size(max = 750)
-    @Column(name = "tag_definition", length = 750)
+    @Column(name = "lp_tag_definition", length = 750)
     private String tagDefinition;
 
     @Size(max = 50)
-    @Column(name = "kind_name", length = 50)
-    private String kindName;
+    @Column(name = "lp_tag_kind", length = 50)
+    private String tagKind;
 
+    @Column(name = "data_version", length = Integer.MAX_VALUE)
+    private String dataVersion;
+
+    @Column(name = "export_date")
+    private LocalDate exportDate;
 }
