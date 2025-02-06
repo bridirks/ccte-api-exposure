@@ -60,11 +60,5 @@ public class ListPresence {
     @Column(name = "keyword_set")
     @JdbcTypeCode(SqlTypes.LONGVARCHAR)
     private String keywordset;
-    
-    @Column(name = "data_version", length = Integer.MAX_VALUE)
-    private String dataVersion;
-
-    @Column(name = "export_date")
-    private LocalDate exportDate;
 
 }

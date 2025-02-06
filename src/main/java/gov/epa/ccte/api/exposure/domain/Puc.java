@@ -44,11 +44,5 @@ public class Puc {
     @Column(name = "puc_definition")
     @JdbcTypeCode(SqlTypes.LONGVARCHAR)
     private String definition;
-    
-    @Column(name = "data_version", length = Integer.MAX_VALUE)
-    private String dataVersion;
-
-    @Column(name = "export_date")
-    private LocalDate exportDate;
 
 }

@@ -76,12 +76,4 @@ public class DemoExpoPrediction {
     @Schema(description = "The peer reviewed journal article explaining how the prediction was made")
     private String reference;
 
-    @Size(max = 50)
-    @Column(name = "data_version", length = 50)
-    private String dataVersion;
-
-    @ColumnDefault("now()")
-    @Column(name = "import_date")
-    private Instant importDate;
-
 }

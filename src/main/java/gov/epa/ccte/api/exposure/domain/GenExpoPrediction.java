@@ -54,12 +54,4 @@ public class GenExpoPrediction {
     @Schema(description = "QSPR-predicted probability that the chemical has human exposure via a far-field industrial pathway")
     private BigDecimal probabilityIndustrial;
 
-    @Size(max = 50)
-    @Column(name = "data_version", length = 50)
-    private String dataVersion;
-
-    @ColumnDefault("now()")
-    @Column(name = "import_date")
-    private Instant importDate;
-
 }

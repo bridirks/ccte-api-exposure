@@ -21,8 +21,4 @@ public interface FunctionalUseAll {
     String getReportedfunction();
 
     String getFunctioncategory();
-    
-    String getDataVersion();
-    
-    LocalDate getExportDate();
 }

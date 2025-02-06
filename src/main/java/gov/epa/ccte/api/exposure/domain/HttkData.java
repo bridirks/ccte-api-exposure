@@ -78,12 +78,4 @@ public class HttkData {
     @Column(name = "data_source_species", length = 10)
     private String dataSourceSpecies;
 
-    @Size(max = 50)
-    @Column(name = "data_version", length = 50)
-    private String dataVersion;
-
-    @ColumnDefault("now()")
-    @Column(name = "import_date")
-    private Instant importDate;
-
 }

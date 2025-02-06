@@ -47,11 +47,5 @@ public class FunctionalUse {
     @Size(max = 100)
     @Column(name = "function_category", length = 100)
     private String functioncategory;
-    
-    @Column(name = "data_version", length = Integer.MAX_VALUE)
-    private String dataVersion;
-
-    @Column(name = "export_date")
-    private LocalDate exportDate;
 
 }
