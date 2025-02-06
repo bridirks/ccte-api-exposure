@@ -89,11 +89,5 @@ public class ProductData {
     @Size(max = 200)
     @Column(name = "component", length = 200)
     private String component;
-    
-    @Column(name = "data_version", length = Integer.MAX_VALUE)
-    private String dataVersion;
-
-    @Column(name = "export_date")
-    private LocalDate exportDate;
 
 }

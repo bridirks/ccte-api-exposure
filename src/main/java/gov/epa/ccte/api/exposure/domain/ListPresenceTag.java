@@ -32,10 +32,4 @@ public class ListPresenceTag {
     @Size(max = 50)
     @Column(name = "lp_tag_kind", length = 50)
     private String tagKind;
-
-    @Column(name = "data_version", length = Integer.MAX_VALUE)
-    private String dataVersion;
-
-    @Column(name = "export_date")
-    private LocalDate exportDate;
 }
