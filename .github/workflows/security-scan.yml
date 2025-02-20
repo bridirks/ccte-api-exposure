@@ -14,7 +14,7 @@ jobs:
         echo "x-api-key=${{ secrets.X_API_KEY }}" >> $GITHUB_ENV
       
      - name: perform passive scan
-       uses: zaproxy/action-api-scan@v0.6.0
+       uses: zaproxy/action-api-scan@v0.9.0
        with:
          token: ${{ secrets.GITHUB_TOKEN }}
          format: openapi
