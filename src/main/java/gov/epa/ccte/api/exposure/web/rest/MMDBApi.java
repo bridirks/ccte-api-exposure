@@ -90,7 +90,7 @@ public interface MMDBApi {
 
 
 	/**
-	 * {@code GET  /exposure/mmdb/categories} : get list of all searchable medium categories and their definitions.
+	 * {@code GET  /exposure/mmdb/mediums} : get list of all searchable medium categories and their definitions.
 	 *
 	 * @param N/A.
 	 * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the list of MMDB medium categories and definitions}.
