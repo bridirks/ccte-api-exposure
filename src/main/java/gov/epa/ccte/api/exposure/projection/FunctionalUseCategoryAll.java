@@ -4,9 +4,9 @@ package gov.epa.ccte.api.exposure.projection;
  * Projection for {@link gov.epa.ccte.api.exposure.domain.FunctionalUseCategory}
  */
 public interface FunctionalUseCategoryAll {
-    Integer getId();
+    Long getId();
 
-    String getTitle();
+    String getCategory();
 
-    String getDescription();
+    String getDefinition();
 }

@@ -13,23 +13,24 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Size;
 import org.hibernate.type.SqlTypes;
 
+import io.swagger.v3.oas.annotations.Hidden;
 
 import java.time.Instant;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "v_functional_use_category", schema = "ep")
+@Table(name = "mv_t_functional_use_category", schema = "chemexpo")
 public class FunctionalUseCategory {
     @Id
     @Column(name = "id")
-    private Integer id;
+    private Long id;
 
     @Size(max = 100)
-    @Column(name = "title", length = 100)
-    private String title;
+    @Column(name = "function_category", length = 100)
+    private String category;
 
-    @Column(name = "description")
+    @Column(name = "function_definition")
     @JdbcTypeCode(SqlTypes.LONGVARCHAR)
-    private String description;
+    private String definition;
 }
