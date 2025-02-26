@@ -74,7 +74,7 @@ public interface MMDBApi {
 
 
 	/**
-	 * {@code GET  /exposure/mmdb/single-sample/by-dtxsid/:medium} : get list of harmonized single-sample records by dtxsid.
+	 * {@code GET  /exposure/mmdb/single-sample/by-medium/:medium} : get list of harmonized single-sample records by dtxsid.
 	 *
 	 * @param dtxsid the matching dtxsid of the MMDB aggregate records to retrieve
 	 * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the list of MMDB aggregate records}.
