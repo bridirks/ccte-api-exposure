@@ -99,7 +99,7 @@ public interface MMDBApi {
     @ApiResponses(value= {
             @ApiResponse(responseCode = "200", description = "OK",  content = @Content( mediaType = "application/json"))
     })
-    @RequestMapping(value = "/categories", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/mediums", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	List<MMDBMediaDescSummary> getAllHarmonizedMedia();
 
 }
