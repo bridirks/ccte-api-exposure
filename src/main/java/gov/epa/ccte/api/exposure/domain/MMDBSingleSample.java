@@ -19,7 +19,7 @@ import lombok.Setter;
 @Table(name = "mv_mmdb_single_sample", schema = "mmdb")
 public class MMDBSingleSample {
 	@Id
-	@Column(name = "harmonized_single_id")
+	@Column(name = "id")
 	@Schema(description ="Unique database ID for this individual table record")
 	private Integer id;
 
