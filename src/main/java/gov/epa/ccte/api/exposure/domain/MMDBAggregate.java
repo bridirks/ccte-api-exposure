@@ -19,7 +19,7 @@ import lombok.Setter;
 @Table(name = "mv_mmdb_aggregate", schema = "mmdb")
 public class MMDBAggregate {
 	@Id
-	@Column(name = "harmonized_aggregate_id")
+	@Column(name = "id")
 	@Schema(description ="Unique database ID for this individual table record")
 	private Integer id;
 
