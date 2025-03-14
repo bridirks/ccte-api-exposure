@@ -21,7 +21,7 @@ jobs:
       - name: Run Container Security Scan Action
         uses: USEPA/ccte-container-scan@main
         with:
-          image_name: api-bioactivity-security-cs
+          image_name: api-https://api-ccte-stg.epa.gov/docs/exposure.json-security-cs
           dockerfile: Dockerfile
           output_path: ./output/exposure-report.html
           cleanup_path: /data/watchtower/ctx-API/container-results/api-exposure/exposure-report.html
@@ -62,6 +62,6 @@ jobs:
         uses: USEPA/ccte-Zap-Scan@main 
         with:
           zap_token: ${{ secrets.GITHUB_TOKEN }}
-          zap_target: 'https://api-ccte-stg.epa.gov/docs/bioactivity.json'
+          zap_target: 'https://api-ccte-stg.epa.gov/docs/exposure.json'
           zap_format: 'openapi'
           zap_cmd_options: '-a'
