@@ -2,7 +2,7 @@ name: Security Workflows
 
 on:
   push:
-    branches: [ dev, staging, dev-100 ]
+    branches: [ dev, staging, dev-1008 ]
     tags: [ 'v*.*.*' ]
  
 jobs:
@@ -21,7 +21,7 @@ jobs:
       - name: Run Container Security Scan Action
         uses: USEPA/ccte-container-scan@main
         with:
-          image_name: api-https://api-ccte-stg.epa.gov/docs/exposure.json-security-cs
+          image_name: api-exposure-security-cs
           dockerfile: Dockerfile
           output_path: ./output/exposure-report.html
           cleanup_path: /data/watchtower/ctx-API/container-results/api-exposure/exposure-report.html
