@@ -27,6 +27,8 @@ jobs:
           dockerfile: Dockerfile
           output_path: ./output/exposure-report.html
           cleanup_path: /data/watchtower/ctx-API/container-results/api-exposure/exposure-report.html
+          watchtower_path: /data/watchtower/ctx-API/container-results/api-exposure/exposure-report.html
+          
 
   trufflehog:
     runs-on: ubuntu-latest
