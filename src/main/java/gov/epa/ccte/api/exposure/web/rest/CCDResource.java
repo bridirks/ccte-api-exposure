@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import gov.epa.ccte.api.exposure.domain.CCDBiomonitoring;
 import gov.epa.ccte.api.exposure.domain.CCDChemicalWeightFractions;
 import gov.epa.ccte.api.exposure.domain.CCDGeneralUseKeywords;
 import gov.epa.ccte.api.exposure.domain.CCDProductUseCategory;
 import gov.epa.ccte.api.exposure.domain.CCDReportedFunctionalUse;
+import gov.epa.ccte.api.exposure.repository.CCDBiomonitoringRepository;
 import gov.epa.ccte.api.exposure.repository.CCDChemicalWeightFractionsRepository;
 import gov.epa.ccte.api.exposure.repository.CCDGeneralUseKeywordsRepository;
 import gov.epa.ccte.api.exposure.repository.CCDProductUseCategoryRepository;
@@ -22,12 +24,14 @@ public class CCDResource implements CCDApi{
     private final CCDGeneralUseKeywordsRepository keywordsRepository;
     private final CCDProductUseCategoryRepository productUseRepository;
     private final CCDReportedFunctionalUseRepository functionalUseRepository;
+    private final CCDBiomonitoringRepository biomonitoringRepository;
 
-    public CCDResource(CCDChemicalWeightFractionsRepository chemWeightRepository, CCDGeneralUseKeywordsRepository keywordsRepository, CCDProductUseCategoryRepository productUseRepository, CCDReportedFunctionalUseRepository functionalUseRepository) {
+    public CCDResource(CCDChemicalWeightFractionsRepository chemWeightRepository, CCDGeneralUseKeywordsRepository keywordsRepository, CCDProductUseCategoryRepository productUseRepository, CCDReportedFunctionalUseRepository functionalUseRepository, CCDBiomonitoringRepository biomonitoringRepository) {
         this.chemWeightRepository = chemWeightRepository;
         this.keywordsRepository = keywordsRepository;
         this.productUseRepository = productUseRepository;
         this.functionalUseRepository = functionalUseRepository;
+        this.biomonitoringRepository = biomonitoringRepository;
     }
     
     @Override
@@ -62,6 +66,15 @@ public class CCDResource implements CCDApi{
         log.debug("all reported functional use data for dtxsid = {}", dtxsid);
 
         List<CCDReportedFunctionalUse> data = functionalUseRepository.findByDtxsid(dtxsid);
+
+        return data;
+    }
+    
+    @Override
+    public List<CCDBiomonitoring> getBiomonitoringDataByDtxsid(String dtxsid) {
+        log.debug("all NHANES Inferences for dtxsid = {}", dtxsid);
+
+        List<CCDBiomonitoring> data = biomonitoringRepository.findByDtxsid(dtxsid);
 
         return data;
     }
