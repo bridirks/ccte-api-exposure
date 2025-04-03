@@ -71,11 +71,26 @@ public class CCDResource implements CCDApi{
     }
     
     @Override
-    public List<CCDBiomonitoring> getBiomonitoringDataByDtxsid(String dtxsid) {
+    public List<?> getBiomonitoringDataByDtxsid(String dtxsid, String projection) {
         log.debug("all NHANES Inferences for dtxsid = {}", dtxsid);
-
-        List<CCDBiomonitoring> data = biomonitoringRepository.findByDtxsid(dtxsid);
-
-        return data;
+        
+        if (projection == null || projection.isEmpty()) {
+            List<CCDBiomonitoring> result = biomonitoringRepository.findByDtxsid(dtxsid, CCDBiomonitoring.class);
+            return result != null ? List.of(result) : List.of(); 
+        }
+        
+        Object result = switch (projection) {
+        	case "ccd-biomonitoring" -> biomonitoringRepository.findByDtxsidWithMsgColumn(dtxsid);
+        	default -> biomonitoringRepository.findByDtxsid(dtxsid, CCDBiomonitoring.class);
+        };
+        
+        if (result instanceof List<?>) {
+            return (List<?>) result;
+        } else if (result != null) {
+            return List.of(result); 
+        } else {
+            return List.of(); 
+        }
     }
+    
 }

@@ -6,12 +6,14 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import gov.epa.ccte.api.exposure.domain.CCDBiomonitoring;
 import gov.epa.ccte.api.exposure.domain.CCDChemicalWeightFractions;
 import gov.epa.ccte.api.exposure.domain.CCDGeneralUseKeywords;
 import gov.epa.ccte.api.exposure.domain.CCDProductUseCategory;
 import gov.epa.ccte.api.exposure.domain.CCDReportedFunctionalUse;
+import gov.epa.ccte.api.exposure.projection.CCDBiomonitoringAll;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -62,12 +64,20 @@ public interface CCDApi {
     @RequestMapping(value = "/functional-use/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     List<CCDReportedFunctionalUse> getReportedFunctionalUseByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid") String dtxsid);
 
-    @Operation(summary = "Find Biomonitoring data by dtxsid", description = "return NHANES Inferences for requested dtxsid")
+    @Operation(summary = "Find Biomonitoring data by dtxsid with ccd projection", 
+    		   description = "return NHANES Inferences for requested dtxsid" +
+                             "there is an available projection for ccd exposure biomonitoring page:" +
+    				         "ccd-biomonitoring" +
+                             "If no projection is specified, the default CCDBiomonitoring data will be returned")
     @ApiResponses(value= {
             @ApiResponse(responseCode = "200", description = "OK",  content = @Content( mediaType = "application/json",
-                    schema=@Schema(oneOf = {CCDBiomonitoring.class}))),
+                    schema=@Schema(oneOf = {CCDBiomonitoring.class, CCDBiomonitoringAll.class}))),
     })
     @RequestMapping(value = "/monitoring-data/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    List<CCDBiomonitoring> getBiomonitoringDataByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID7020182") @PathVariable("dtxsid") String dtxsid);
+    List<?> getBiomonitoringDataByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID7020182") 
+                                         @PathVariable("dtxsid") String dtxsid,
+                             	        @Parameter(description = "Specifies if projection is used. Option: ccd-biomonitoring, " +
+            	                                "If omitted, the default CCDBiomonitoring data is returned.")
+            	                        @RequestParam(value = "projection", required = false) String projection);
 
 }
