@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "biomonitor_data", schema = "hnanes")
+@Table(name = "biomonitor_data", schema = "nhanes")
 public class CCDBiomonitoring {
 	@Id
 	@Column(name = "id")
