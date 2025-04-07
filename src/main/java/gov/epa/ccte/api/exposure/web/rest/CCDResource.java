@@ -8,11 +8,13 @@ import gov.epa.ccte.api.exposure.domain.CCDBiomonitoring;
 import gov.epa.ccte.api.exposure.domain.CCDChemicalWeightFractions;
 import gov.epa.ccte.api.exposure.domain.CCDGeneralUseKeywords;
 import gov.epa.ccte.api.exposure.domain.CCDProductUseCategory;
+import gov.epa.ccte.api.exposure.domain.CCDProductionVolume;
 import gov.epa.ccte.api.exposure.domain.CCDReportedFunctionalUse;
 import gov.epa.ccte.api.exposure.repository.CCDBiomonitoringRepository;
 import gov.epa.ccte.api.exposure.repository.CCDChemicalWeightFractionsRepository;
 import gov.epa.ccte.api.exposure.repository.CCDGeneralUseKeywordsRepository;
 import gov.epa.ccte.api.exposure.repository.CCDProductUseCategoryRepository;
+import gov.epa.ccte.api.exposure.repository.CCDProductionVolumeRepository;
 import gov.epa.ccte.api.exposure.repository.CCDReportedFunctionalUseRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,13 +27,15 @@ public class CCDResource implements CCDApi{
     private final CCDProductUseCategoryRepository productUseRepository;
     private final CCDReportedFunctionalUseRepository functionalUseRepository;
     private final CCDBiomonitoringRepository biomonitoringRepository;
+    private final CCDProductionVolumeRepository productionVolumeRepository;
 
-    public CCDResource(CCDChemicalWeightFractionsRepository chemWeightRepository, CCDGeneralUseKeywordsRepository keywordsRepository, CCDProductUseCategoryRepository productUseRepository, CCDReportedFunctionalUseRepository functionalUseRepository, CCDBiomonitoringRepository biomonitoringRepository) {
+    public CCDResource(CCDChemicalWeightFractionsRepository chemWeightRepository, CCDGeneralUseKeywordsRepository keywordsRepository, CCDProductUseCategoryRepository productUseRepository, CCDReportedFunctionalUseRepository functionalUseRepository, CCDBiomonitoringRepository biomonitoringRepository, CCDProductionVolumeRepository productionVolumeRepository) {
         this.chemWeightRepository = chemWeightRepository;
         this.keywordsRepository = keywordsRepository;
         this.productUseRepository = productUseRepository;
         this.functionalUseRepository = functionalUseRepository;
         this.biomonitoringRepository = biomonitoringRepository;
+        this.productionVolumeRepository = productionVolumeRepository;
     }
     
     @Override
@@ -93,4 +97,12 @@ public class CCDResource implements CCDApi{
         }
     }
     
+    @Override
+    public List<CCDProductionVolume> getProductionVolumeDataByDtxsid(String dtxsid) {
+        log.debug("all production volume data for dtxsid = {}", dtxsid);
+
+        List<CCDProductionVolume> data = productionVolumeRepository.findByDtxsid(dtxsid);
+
+        return data;
+    }
 }
