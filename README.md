@@ -3,6 +3,11 @@
 ## Overview
 The Exposure Microservice is a RESTful API designed to manage and provide Exposure data. It interacts with a PostgreSQL database and offers various endpoints for Exposure-related operations.
 
+## Available Data
+Data underlying the Exposure API comes from the Chemicals and Products Database (CPDat) [Learn more: The Chemical and Products Database, a resource for exposure-relevant data on chemicals in consumer products](https://www.nature.com/articles/sdata2018125) and predictions from EPA’s Quantitative Structure Use Relationship (QSUR) models [Learn more: High-throughput screening of chemicals as functional substitutes using structure-based classification models](https://pubs.rsc.org/en/content/articlelanding/2017/gc/c6gc02744j).
+
+For exposure-related questions, contact the Chemical Exposure Knowledgebase team (chemexpo.support@epa.gov).
+
 ## Technologies Used
 - **Java**: Programming language used for the development of the application.
 - **Spring Boot**: Framework used to create stand-alone, production-grade Spring-based applications.
@@ -63,4 +68,7 @@ src/
 Contributions are welcome! Please read the `CONTRIBUTING.md` file for guidelines.
 
 ## Contact
-For any inquiries, please contact the project maintainers.
+For any inquiries, please contact the project maintainer. **[Rashid, Asif](https://github.com/asif-rashid)** , **[Dirks, Brianna](https://github.com/bridirks)**, **[Feshuk, Madison](https://github.com/madison-feshuk)**
+
+## Disclaimer
+The United States Environmental Protection Agency (EPA) GitHub project code is provided on an "as is" basis and the user assumes responsibility for its use. EPA has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality, or availability of the information. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by EPA. The EPA seal and logo shall not be used in any manner to imply endorsement of any commercial product or activity by EPA or the United States Government. 
