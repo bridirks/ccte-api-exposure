@@ -12,6 +12,7 @@ import gov.epa.ccte.api.exposure.domain.CCDBiomonitoring;
 import gov.epa.ccte.api.exposure.domain.CCDChemicalWeightFractions;
 import gov.epa.ccte.api.exposure.domain.CCDGeneralUseKeywords;
 import gov.epa.ccte.api.exposure.domain.CCDProductUseCategory;
+import gov.epa.ccte.api.exposure.domain.CCDProductionVolume;
 import gov.epa.ccte.api.exposure.domain.CCDReportedFunctionalUse;
 import gov.epa.ccte.api.exposure.projection.CCDBiomonitoringAll;
 import io.swagger.v3.oas.annotations.Operation;
@@ -79,5 +80,13 @@ public interface CCDApi {
                              	        @Parameter(description = "Specifies if projection is used. Option: ccd-biomonitoring, " +
             	                                "If omitted, the default CCDBiomonitoring data is returned.")
             	                        @RequestParam(value = "projection", required = false) String projection);
+
+    @Operation(summary = "Find Production Volume data by dtxsid", description = "return Production Volume data for requested dtxsid")
+    @ApiResponses(value= {
+            @ApiResponse(responseCode = "200", description = "OK",  content = @Content( mediaType = "application/json",
+                    schema=@Schema(oneOf = {CCDProductionVolume.class}))),
+    })
+    @RequestMapping(value = "/production-volume/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    List<CCDProductionVolume> getProductionVolumeDataByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232") @PathVariable("dtxsid") String dtxsid);
 
 }
