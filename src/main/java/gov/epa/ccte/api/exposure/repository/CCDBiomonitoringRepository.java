@@ -30,7 +30,7 @@ public interface CCDBiomonitoringRepository extends JpaRepository<CCDBiomonitori
                             ELSE 'null'
                         END AS hoverMsg
     					FROM
-    					    hnanes.biomonitor_data bio     					  					
+    					    nhanes.biomonitor_data bio     					  					
     					WHERE
     					    bio.dtxsid = :dtxsid
     					ORDER BY label ASC;
