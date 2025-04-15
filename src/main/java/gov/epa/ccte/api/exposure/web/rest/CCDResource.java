@@ -80,7 +80,7 @@ public class CCDResource implements CCDApi{
         
         if (projection == null || projection.isEmpty()) {
             List<CCDBiomonitoring> result = biomonitoringRepository.findByDtxsid(dtxsid, CCDBiomonitoring.class);
-            return result != null ? List.of(result) : List.of(); 
+            return result; 
         }
         
         Object result = switch (projection) {
