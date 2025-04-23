@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "mv_production_volume", schema = "ep")
+@Table(name = "mv_production_volume", schema = "prodvol")
 public class CCDProductionVolume {
 	@Id
 	@Column(name = "id")
