@@ -20,7 +20,7 @@ public class MMDBAggregate {
 	@Id
 	@Column(name = "id")
 	@Schema(description ="Unique database ID for this individual table record")
-	private Integer id;
+	private Long id;
 
 	@Size(max = 120)
 	@Column(name = "full_source_name", length = 120)
