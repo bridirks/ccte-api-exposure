@@ -33,7 +33,7 @@ public interface DemoExpoPredictionApi {
     @RequestMapping(value = "/search/by-dtxsid/{dtxsid}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     List<?> getDemoExpoPredictionByDtxsid(@Parameter(required = true, description = "DSSTox Substance Identifier", example = "DTXSID0020232")
     									@PathVariable("dtxsid") String dtxsid,
-    									@Parameter(description = "Specifies whether to use projection. Optional: ccd-ccd-demographic.")
+    									@Parameter(description = "Specifies whether to use projection. Optional: ccd-demographic.")
     									@RequestParam(value = "projection", required = false) String projection);
 
     @Operation(summary = "Find demographic prediction SEEMs data by batch of dtxsids", description = "return demographic prediction SEEMs data for requested dtxsids")
