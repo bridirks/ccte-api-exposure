@@ -101,7 +101,8 @@ public interface MMDBApi {
 	 */
 	@Operation(summary = "Get all searchable harmonized medium categories and their corresponding definitions")
     @ApiResponses(value= {
-            @ApiResponse(responseCode = "200", description = "OK",  content = @Content( mediaType = "application/json"))
+            @ApiResponse(responseCode = "200", description = "OK",  content = @Content( mediaType = "application/json",
+                    schema=@Schema(oneOf = {MMDBMediaDescSummary.class})))
     })
     @RequestMapping(value = "/mediums", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	List<MMDBMediaDescSummary> getAllHarmonizedMedia();
